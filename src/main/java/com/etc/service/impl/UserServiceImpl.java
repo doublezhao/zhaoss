@@ -19,4 +19,5 @@ public class UserServiceImpl implements UserService {
     public User getUser(){
         return userMapper.user();
     }
+    public User getUser(int id){ return userMapper.getUserById(id);}
 }

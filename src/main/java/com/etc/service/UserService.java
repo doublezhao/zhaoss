@@ -9,4 +9,5 @@ import com.etc.entity.User;
 
 public interface UserService {
     public User getUser();
+    public User getUser(int id);
 }
