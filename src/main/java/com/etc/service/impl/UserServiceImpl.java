@@ -1,6 +1,7 @@
 package com.etc.service.impl;
-
+import java.util.Map;
 import com.etc.dao.UserMapper;
+import com.etc.entity.Response.AddUserRes;
 import com.etc.entity.User;
 import com.etc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,4 +21,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.user();
     }
     public User getUser(int id){ return userMapper.getUserById(id);}
+    public AddUserRes addUser(Map map){
+
+    }
 }

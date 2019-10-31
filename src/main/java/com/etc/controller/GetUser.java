@@ -1,16 +1,13 @@
 package com.etc.controller;
 
-import com.etc.service.UserService;
+import com.etc.entity.Response.AddUserRes;
 import com.etc.service.impl.UserServiceImpl;
-import lombok.Data;
-import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.sql.DataSourceDefinition;
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Author kzhao
@@ -26,9 +23,25 @@ public class GetUser {
     public String getUser() {
         return us.getUser().toString();
     }
+
     @RequestMapping("/getUser/{id}")
     public String getUserById(@PathVariable int id) {
         return us.getUser(id).toString();
+    }
+
+    @RequestMapping(value="/getUser/ById",method = RequestMethod.POST)
+    public String getUserByIdPost(HttpServletRequest  request) {
+        Map<String,Object> para =new HashMap<>();
+        para.put("id",request.getParameter("id"));
+        System.out.print(request.getParameter("id"));
+        return us.getUser(Integer.parseInt(request.getParameter("id"))).toString();
+    }
+
+    @RequestMapping(value="/addUser",method= RequestMethod.POST)
+    public AddUserRes addUser(HttpServletRequest  request){
+        Map<String,Object> para =new HashMap<>();
+        para.put("id",request.getParameter("id"));
+        return us.addUser(para);
     }
 
 }

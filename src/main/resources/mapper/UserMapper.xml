@@ -15,5 +15,8 @@
     <select id="getUserById" resultType="com.etc.entity.User" parameterType="int">
         select * from springboot.user where id = #{id}
     </select>
+    <select id="addUser" resultType="com.etc.entity.User" >
+
+    </select>
 
 </mapper>
