@@ -16,7 +16,7 @@
         select * from springboot.user where id = #{id}
     </select>
     <select id="addUser" resultType="com.etc.entity.User" >
-
+        insert into springboot.user values(#{id},#{name},#{passWord},#{realName})
     </select>
 
 </mapper>

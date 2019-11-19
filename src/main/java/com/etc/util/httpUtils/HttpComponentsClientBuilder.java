@@ -1,4 +1,4 @@
-package com.etc.util.httpUtil;
+package com.etc.util.httpUtils;
 import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.HttpResponseInterceptor;
 import org.apache.http.client.config.RequestConfig;
@@ -63,11 +63,6 @@ public final class HttpComponentsClientBuilder {
         return builder.build();
     }
 
-    /**
-     * 基于常规默认
-     *
-     * @return
-     */
     public static CloseableHttpClient build() {
         HttpClientConfiguration configuration = HttpClientConfiguration.common();
         return build(configuration);

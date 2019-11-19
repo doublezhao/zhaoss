@@ -1,8 +1,12 @@
 package com.etc.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.etc.entity.Response.AddUserRes;
 import com.etc.service.impl.UserServiceImpl;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +18,7 @@ import java.util.Map;
  * @Date 10/25/2019 4:32 PM
  **/
 @RestController
-public class GetUser {
+public class User {
 
     @Autowired
     private UserServiceImpl us;

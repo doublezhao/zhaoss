@@ -1,9 +1,8 @@
-package com.etc.util.httpUtil;
+package com.etc.util.httpUtils;
 
 import org.apache.http.client.HttpClient;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.*;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.methods.RequestBuilder;
@@ -19,7 +18,6 @@ import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.io.IOException;
 
 /**
  * @Author kzhao
@@ -29,7 +27,7 @@ import java.io.IOException;
     /**
      * 基于HttpComponents实现的客户端，只支持String类型请求，即REST
      **/
-class HttpComponentsClientTemplate extends AbstractHttpClientTemplate {
+class HttpComponentsClientTemplate extends HttpClientTemplate {
 
         private CloseableHttpClient httpClient;
 
@@ -169,6 +167,10 @@ class HttpComponentsClientTemplate extends AbstractHttpClientTemplate {
             }
 
         }
+        @Override
+        public String post(String uri, Map<String, String> parameters){
+            return "";
+        }
 
 
         private String process(HttpUriRequest request) throws Exception {
@@ -211,6 +213,5 @@ class HttpComponentsClientTemplate extends AbstractHttpClientTemplate {
         public String clientType() {
             return HttpClientConfiguration.HTTP_CLIENT_TYPE_HTTP_COMPONENTS;
         }
-
 
     }

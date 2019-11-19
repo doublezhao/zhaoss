@@ -22,6 +22,6 @@ public class UserServiceImpl implements UserService {
     }
     public User getUser(int id){ return userMapper.getUserById(id);}
     public AddUserRes addUser(Map map){
-
+        return AddUserRes ad;
     }
 }
